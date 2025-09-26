@@ -1,8 +1,8 @@
 <?php
 
-$names=["Francisco","Roberto","Juan"];
+$names = ["Francisco", "Roberto", "Juan"];
 
-foreach($names as $name){
+foreach ($names as $name) {
     echo $name . ";";
 }
 
@@ -11,7 +11,7 @@ echo "<br /><br />";
 $beer = [
     "name" => "Erdinger",
     "alcohol" => 8.5,
-    "country"=>"Alemania"
+    "country" => "Alemania"
 ];
 
 foreach ($beer as $key => $value) {
