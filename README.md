@@ -1,2 +1,2 @@
 # Curso de PHP Moderno
-Curso de Php de Héctor de León de Udemy
+Curso de PHP de Héctor de León en Udemy

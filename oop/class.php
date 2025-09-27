@@ -4,9 +4,11 @@ declare(strict_types=1);
 $BR = "<br />";
 
 $sale = new Sale(10.5, date("Y-m-d H:i:s"));
-$concept = new Concept("cerveza", 10);
-$sale->addConcept($concept);
-print_r($sale->concepts);
+$onlineSale = new OnlineSale(15.5, date("Y-m-d H:i:s"));
+echo $onlineSale->createInvoice();
+// $concept = new Concept("cerveza", 10.2);
+// $sale->addConcept($concept);
+// print_r($sale->concepts);
 // echo gettype($sale->total);
 // echo $BR;
 // echo $sale->createInvoice();
@@ -54,11 +56,22 @@ class Sale
     }
 }
 
+class OnlineSale extends Sale {
+    public $paymentMethod;
+
+    public function __construct(float $total, string $date, string $paymentMethod)
+    {
+        parent::__construct($total, $date);
+        $this->paymentMethod = $paymentMethod;
+    }
+}
+
 class Concept {
     public string $description;
-    public int $amount;
+    public int|float $amount;
 
-    public function __construct(string $description, int $amount){
+    // Uso de Union types
+    public function __construct(string $description, int|float $amount){
         $this->description = $description;
         $this->amount = $amount;
     }
