@@ -26,7 +26,19 @@ class BeerRespository implements SaveInterface {
 }
 
 class SaveProcess {
-    public function store(SaveInterface $entity):void{
-        $entity->save();
+    private SaveInterface $saveManager;
+
+    public function __construct(SaveInterface $saveManager){
+        $this->saveManager = $saveManager;
+    }
+
+    public function keep(){
+        echo "hacemos algo antes". BR;
+        $this->saveManager->save();
     }
 }
+
+$beerRepository = new BeerRespository();
+$document = new Document();
+$saveProcess = new SaveProcess($document);
+$saveProcess->keep();
